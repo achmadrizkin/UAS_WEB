@@ -10,13 +10,17 @@
 <div class="row">
 	<div class="col-md-6">
 		<div class="form-group">
-	    	<label for="input-placeholder">Nama</label>
-			<input type="text" name="nama" id="nama" class="form-control" value="{{ $kategori->nama ?? old('nama') }}"> <br>
+	    	<label for="input-placeholder">Kode</label>
+			<input type="text" name="kode" id="kode" class="form-control" value="{{ $kategori->kode ?? old('kode') }}"> <br>
+		</div>
+		<div class="form-group">
+	    	<label for="input-placeholder">Merek</label>
+			<input type="text" name="merek" id="merek" class="form-control" value="{{ $kategori->merek ?? old('merek') }}"> <br>
 		</div>
 	</div>
 	<footer class="card-footer text-right">
 		 <button class="btn btn-w-lg btn-primary" type="submit">Simpan</button>
-        <a href="{{route('kategori.index')}}" class="btn btn-w-lg btn-dark" type="reset">Kembali ke Daftar Kategori</a>
+        <a href="{{route('kategori.index')}}" class="btn btn-w-lg btn-dark" type="reset">Kembali ke Daftar Mobil</a>
     </footer>
 </form>
 </div>

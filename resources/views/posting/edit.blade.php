@@ -10,8 +10,12 @@
 <div class="row">
 	<div class="col-md-6">
 		<div class="form-group">
-	    	<label for="input-placeholder">Nama</label>
-			<input type="text" name="judul" id="judul" class="form-control" value="{{ $posting->judul ?? old('judul') }}"> <br>
+	    	<label for="input-placeholder">Plat No</label>
+			<input type="text" name="plat_no" id="plat_no" class="form-control" value="{{ $posting->plat_no ?? old('plat_no') }}"> <br>
+		</div>
+		<div class="form-group">
+	    	<label for="input-placeholder">Tahun Pembuatan</label>
+			<input type="text" name="tahun_pembuatan" id="tahun_pembuatan" class="form-control" value="{{ $posting->tahun_pembuatan ?? old('tahun_pembuatan') }}"> <br>
 		</div>
 	</div>
 	<div class="col-md-6">
@@ -19,20 +23,18 @@
 	    	<label for="input-placeholder">Kategori</label>
 			<select class="form-control" name="kategori_id">
 				@foreach($kategori as $index=>$value)
-				<option value='{{$value->id}}' @if($posting->kategori_id==$value->id) selected @endif>{{$value->nama}}</option>
+				<option value='{{$value->id}}' @if($posting->kategori_id==$value->id) selected @endif>{{$value->merek}}</option>
 				@endforeach
 			</select>
 		</div>
-	</div>
-	<div class="col-md-12">
 		<div class="form-group">
-	    	<label for="input-placeholder">Konten</label>
-			<textarea name="isi" class="form-control">{{ $posting->isi ?? old('isi') }}</textarea>
+	    	<label for="input-placeholder">Warna</label>
+			<input type="text" name="warna" id="warna" class="form-control" value="{{ $posting->warna ?? old('warna') }}"> <br>
 		</div>
 	</div>
 	<footer class="card-footer text-right">
 		 <button class="btn btn-w-lg btn-primary" type="submit">Simpan</button>
-        <a href="{{route('posting.index')}}" class="btn btn-w-lg btn-dark" type="reset">Kembali ke Daftar Kategori</a>
+        <a href="{{route('posting.index')}}" class="btn btn-w-lg btn-dark" type="reset">Kembali ke Daftar Mobil</a>
     </footer>
 </form>
 </div>

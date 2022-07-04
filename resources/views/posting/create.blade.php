@@ -9,29 +9,31 @@
 <div class="row">
 	<div class="col-md-6">
 		<div class="form-group">
-	    	<label for="input-placeholder">Judul</label>
-			<input type="text" name="judul" id="judul" class="form-control" value="{{old('judul')}}"> <br>
+	    	<label for="input-placeholder">Plat No</label>
+			<input type="text" name="plat_no" id="plat_no" class="form-control" value="{{old('plat_no')}}"> <br>
+		</div>
+		<div class="form-group">
+	    	<label for="input-placeholder">Tahun Pembuatan</label>
+			<input type="text" name="tahun_pembuatan" id="tahun_pembuatan" class="form-control" value="{{old('thn_pembuatan')}}"> <br>
 		</div>
 	</div>
 	<div class="col-md-6">
 		<div class="form-group">
-	    	<label for="input-placeholder">Kategori</label>
+	    	<label for="input-placeholder">Merek</label>
 			<select class="form-control" name="kategori_id">
 				@foreach($kategori as $index=>$value)
-				<option value='{{$value->id}}'>{{$value->nama}}</option>
+				<option value='{{$value->id}}'>{{$value->merek}}</option>
 				@endforeach
 			</select>
 		</div>
-	</div> 
-	<div class="col-md-12">
 		<div class="form-group">
-	    	<label for="input-placeholder">Konten</label>
-			<textarea name="isi" class="form-control"></textarea>
+	    	<label for="input-placeholder">Warna</label>
+			<input type="text" name="warna" id="warna" class="form-control" value="{{old('warna')}}"> <br>
 		</div>
-	</div>
+	</div> 
 	<footer class="card-footer text-right">
 		 <button class="btn btn-w-lg btn-primary" type="submit">Simpan</button>
-        <a href="{{route('posting.index')}}" class="btn btn-w-lg btn-dark" type="reset">Kembali ke Daftar Posting</a>
+        <a href="{{route('posting.index')}}" class="btn btn-w-lg btn-dark" type="reset">Kembali ke Daftar Mobil</a>
     </footer>
 </form>
 </div>

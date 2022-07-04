@@ -4,17 +4,26 @@
 @section('content')
 <h1>{{$title}}</h1>
 @include('layouts/alert') 
-<p><a href="{{route('posting.create')}}">Tambah Data Posting</a>
+<p><a href="{{route('posting.create')}}">Tambah Data Mobil</a>
 <table class="table table-striped" id="tabeldata" width="100%">
-	<thead> <tr>
-	        <th>No</th> <th>Nama Posting</th> <th>Kategori</th>
-			<th>Action</th> </tr>
+	<thead> 
+		<tr>
+	        <th>No</th> 
+			<th>Plat No</th>
+			<th>Merek</th>
+			<th>Tahun Pembuatan</th>
+			<th>Warna</th>
+			<th>Action</th> 
+		</tr>
 	</thead> <tbody>
 	@foreach($posting as $data)
 		<tr>
-			<td>{{$loop->iteration}}</td> <td>{{$data['judul']}}</td>
-			<td>{{$data['kategori']['nama']}}</td>
-			<td><a href="{{route('posting.show',$data['id'])}}">Lihat</a> |  <a href="{{route('posting.edit',$data['id'])}}">Ubah</a> <form method="POST" action="{{ route('posting.destroy', $data->id) }}" onsubmit="return hapus();" class="d-inline">
+			<td>{{$loop->iteration}}</td> 
+			<td>{{$data->plat_no}}</td> 
+			<td>{{$data['kategori']['merek']}}</td>
+			<td>{{$data->tahun_pembuatan}}</td>
+			<td>{{$data->warna}}</td>
+			<td><a href="{{route('posting.edit',$data['id'])}}">Ubah</a> <form method="POST" action="{{ route('posting.destroy', $data->id) }}" onsubmit="return hapus();" class="d-inline">
                     @csrf 
                 <input name="_method" type="hidden" value="DELETE">
                <button type="submit" class="btn btn-danger">Hapus</button>

@@ -6,8 +6,8 @@
     <li><a href="{{route('profil')}}">Profil</a></li>
     <li><a href="">Kontak</a></li>
     @if(Auth::check())
-        <li><a href="{{route('kategori.index')}}">Kategori</a></li>
-        <li><a href="{{route('posting.index')}}">Posting</a></li>
+        <li><a href="{{route('kategori.index')}}">Merek</a></li>
+        <li><a href="{{route('posting.index')}}">Mobil</a></li>
         <li><a href="{{route('logout')}}">Logout</a></li>
     @endif
 </ul>

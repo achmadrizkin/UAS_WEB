@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Posting extends Model
 {
-    protected $table="posting";
+    protected $table="mobil";
     protected $primaryKey = "id";
-    public $timestamps = true;
+    public $timestamps = false;
 
     public function kategori()
     {

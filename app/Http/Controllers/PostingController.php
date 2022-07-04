@@ -12,14 +12,14 @@ class PostingController extends Controller
     {
         //tampilan keseluruhan 
         $posting = Posting::all();
-        $title = "Data Keseluruhan Posting";
+        $title = "Data Keseluruhan Mobil";
         return view('posting.index', compact('posting','title'));
     }
 
     public function create()
     {
         //tampilkan form tambah posting
-        $title = "Form Tambah Posting";
+        $title = "Form Tambah Mobil";
         $kategori = Kategori::all();
         return view('posting.create', compact('kategori','title'));
     }
@@ -29,14 +29,16 @@ class PostingController extends Controller
         //proses insert data    
         //validasi dulu
         $request->validate([
-            'judul' => 'required',
+            'plat_no' => 'required',
             'kategori_id' => 'required',
-            'isi' => 'required'
+            'tahun_pembuatan' => 'required',
+            'warna' => 'required'
         ]);
         $posting = new Posting();
-        $posting->judul = $request->judul;
+        $posting->plat_no = $request->plat_no;
         $posting->kategori_id = $request->kategori_id;
-        $posting->isi = $request->isi;
+        $posting->tahun_pembuatan = $request->tahun_pembuatan;
+        $posting->warna = $request->warna;
         $posting->save();
         return redirect()->route('posting.index')
             ->with('success', 'Berhasil menambah data');
@@ -45,14 +47,14 @@ class PostingController extends Controller
     public function show(Posting $posting)
     {
         //menampilkan detail data yang dipilih
-        $title = "Data Posting Judul ".$posting->judul;
+        $title = "Data Posting Mobil ".$posting->judul;
         return view('posting.show', compact('posting','title'));
     }
 
     public function edit(Posting $posting)
     {
         //menampilkan form edit
-        $title = "Form Ubah Data Posting";
+        $title = "Form Ubah Data Mobil";
         $kategori = Kategori::all();
         return view('posting.edit', compact('kategori','posting','title'));
     }
@@ -62,13 +64,15 @@ class PostingController extends Controller
         //proses update data
         //validasi dulu
         $request->validate([
-            'judul' => 'required',
+            'plat_no' => 'required',
             'kategori_id' => 'required',
-            'isi' => 'required'
+            'tahun_pembuatan' => 'required',
+            'warna' => 'required'
         ]);
-        $posting->judul = $request->judul;
+        $posting->plat_no = $request->plat_no;
         $posting->kategori_id = $request->kategori_id;
-        $posting->isi = $request->isi;
+        $posting->tahun_pembuatan = $request->tahun_pembuatan;
+        $posting->warna = $request->warna;
         $posting->save();
         return redirect()->route('posting.index')
             ->with('success', 'Berhasil mengubah data');

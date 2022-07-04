@@ -7,7 +7,7 @@
     </head>
     <body>
         <div id="header">
-            <h1>Website xyz.com</h1>
+            <h1>Achmad Rizki Nur Fauzie 2011500713</h1>
         </div>
         @include('layouts.menu')
         <div id="content">
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div id="footer">
-            <p>Copyright 2022</p>
+            <p>Copyright 2022 - Achmad Rizki Nur Fauzie 2011500713</p>
         </div>
         @stack('js')
     </body>

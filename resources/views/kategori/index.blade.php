@@ -4,16 +4,17 @@
 @section('content')
 <h1>{{$title}}</h1>
 @include('layouts/alert')
-<p><a href="{{route('kategori.create')}}">Tambah Data Kategori</a>
+<p><a href="{{route('kategori.create')}}">Tambah Data Merek Mobil</a>
 <table class="table table-striped" id="tabeldata" width="100%">
 	<thead> <tr> 
-	        <th>No</th> <th>Nama Kategori</th> <th>Jumlah Posting</th>
+	        <th>No</th> <th>Kode</th> <th>Merek</th>
 			<th>Action</th> </tr>
 	</thead> <tbody>
 	@foreach($kategori as $data) 
 		<tr>
-			<td>{{$loop->iteration}}</td> <td>{{$data['nama']}}</td>
-			<td>{{$data['post_count']}}</td>
+			<td>{{$loop->iteration}}</td> 
+			<td>{{$data['kode']}}</td>
+			<td>{{$data['merek']}}</td>
 			<td><a href="{{route('kategori.edit',$data['id'])}}">Ubah</a> | <form method="POST" action="{{ route('kategori.destroy', $data->id) }}" onsubmit="return hapus();"  class="d-inline">
                     @csrf 
                 <input name="_method" type="hidden" value="DELETE">

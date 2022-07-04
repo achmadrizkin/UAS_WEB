@@ -12,14 +12,14 @@ class KategoriController extends Controller
     {
         //tampilan keseluruhan data kategori
         $kategori = Kategori::withCount('post')->get();
-        $title = "Data Keseluruhan Kategori";
+        $title = "Data Keseluruhan Merek Mobil";
         return view('kategori.index', compact('kategori','title'));
     }
 
     public function create()
     {
         //tampilkan form tambah kategori
-        $title = "Form Tambah Kategori";
+        $title = "Form Tambah Merek Mobil";
         return view('kategori.create', compact('title'));
     }
 
@@ -28,11 +28,12 @@ class KategoriController extends Controller
         //proses insert data
         //validasi dulu
         $request->validate([
-            'nama' => 'required'
+            'nama' => 'required',
+            'kode' => 'required'
         ]);
         $kategori = new Kategori();
-        $kategori->nama = $request->nama;
-        $kategori->created_by = $request->session()->get('username');
+        $kategori->merek = $request->nama;
+        $kategori->kode = $request->kode;
         $kategori->save();
         return redirect()->route('kategori.index')
             ->with('success', 'Berhasil menambah data');
@@ -41,7 +42,7 @@ class KategoriController extends Controller
     public function edit(Kategori $kategori)
     {
         //menampilkan form edit
-        $title = "Form Ubah Data Kategori";
+        $title = "Form Ubah Data Merek Mobil";
         return view('kategori.edit', compact('kategori','title'));
     }
 
@@ -50,9 +51,11 @@ class KategoriController extends Controller
         //proses update data
         //validasi dulu
         $request->validate([
-            'nama' => 'required'
+            'kode' => 'required',
+            'merek' => 'required'
         ]);
-        $kategori->nama = $request->nama;
+        $kategori->kode = $request->kode;
+        $kategori->merek = $request->merek;
         $kategori->save();
 
         return redirect()->route('kategori.index')
